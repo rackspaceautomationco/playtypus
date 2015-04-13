@@ -1,0 +1,11 @@
+.*.swp
+.*.swo
+*DS_STORE
+/Gemfile.lock
+*.gem
+coverage/
+.ruby-version
+*.log.*
+*.log
+response_logs/
+pkg/
