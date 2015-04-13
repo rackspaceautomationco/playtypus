@@ -95,7 +95,7 @@ Describes available commands or one specific command
 
 Call logs specify arrays of JSON instructing The Playtypus what, as well as when, to play HTTP calls.  Five properties are used:
 
-1.  timestamp - a string in ISO 8601 format
+1.  timestamp - a string in ISO 8601 format.  The initial timestamp matters not--the relative distance between each timestamp defines the distance between two calls.
 
 2.  path - a relative path to be appended to the global --host address
 
