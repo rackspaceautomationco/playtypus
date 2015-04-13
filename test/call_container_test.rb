@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'test_helper'
 require 'time'
 
@@ -13,7 +11,7 @@ class CallContainerTest < Playtypus::Test
       body1 = { 'foo' => 'bar'}
 
       timestamp2 = Time.now.utc+400
-      path2 = "/from_log2/ßßßßß/#{SecureRandom.uuid}"
+      path2 = "/from_log2/bbbbb/#{SecureRandom.uuid}"
       verb2 = 'GET'
       headers2 = nil
       body2 = nil
