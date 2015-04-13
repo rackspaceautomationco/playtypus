@@ -18,12 +18,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'thor', '~> 0.19.1', '>= 0.19.1'
   s.add_dependency 'rake', '~> 10.1.0', '>= 10.1.0'
-  s.add_dependency 'minitest', '~> 4.7.5', '>= 4.7.5'
+  s.add_dependency 'minitest', '~> 5.2.0', '>= 5.2.0'
   s.add_dependency 'simplecov', '~> 0.9.2', '>= 0.9.2'
   s.add_dependency 'coveralls', '~> 0.7.11', '>= 0.7.11'
   s.add_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
   s.add_dependency 'httparty', '~> 0.11.0', '>= 0.11.0'
   s.add_dependency 'eventmachine', '~> 1.0.3', '>= 1.0.3'
-  s.add_dependency 'activesupport', '~> 4.0.2', '>= 4.0.2'
   s.add_dependency 'mocha', '~> 0.14.0', '>= 0.14.0'
 end
