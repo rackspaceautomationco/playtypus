@@ -23,6 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'coveralls', '~> 0.7.11', '>= 0.7.11'
   s.add_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
   s.add_dependency 'httparty', '~> 0.11.0', '>= 0.11.0'
-  s.add_dependency 'eventmachine', '~> 1.0.3', '>= 1.0.3'
+  s.add_dependency 'eventmachine', '~> 1.0.3', '< 1.0.4'
   s.add_dependency 'mocha', '~> 0.14.0', '>= 0.14.0'
 end
