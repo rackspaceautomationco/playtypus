@@ -1,6 +1,3 @@
-# example
-# ruby ./bin/playtypus play --host=http://localhost:8081/ --call-log=/Users/justin/git/primary/Automation/DataRepository/exchange_service_api/smoke_tests/playback_service_api_primer/exchange_crud_api.json --log-responses --preserve-times
-
 require 'thor'
 require 'fileutils'
 
@@ -25,7 +22,7 @@ module Playtypus
         $logger.info "--call-log is a directory.  calls will be sent in order, without --preserve-times"
         preserve_times = false
         logs = Dir.glob("#{options[:call_log]}/**/*.json")
-        logs.each do |log|
+        logs.sort.each do |log|
           calls.concat(Playtypus::CallContainer.from_log(File.read(log)).calls)
         end
       else
