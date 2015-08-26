@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'playtypus'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.date        = '2015-04-09'
   s.required_ruby_version = '>= 1.9.3'
   s.licenses    = ['MIT']
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.executables = %w(playtypus)
 
   s.add_dependency 'thor', '~> 0.19.1', '>= 0.19.1'
-  s.add_dependency 'rake', '~> 10.1.0', '>= 10.1.0'
+  s.add_dependency 'rake', '~> 10.4.2', '>= 10.4.2'
   s.add_dependency 'minitest', '~> 5.2.0', '>= 5.2.0'
   s.add_dependency 'simplecov', '~> 0.9.2', '>= 0.9.2'
   s.add_dependency 'coveralls', '~> 0.7.11', '>= 0.7.11'
