@@ -48,6 +48,7 @@ The Playtypus is an eventmachine-based command line utility that plays HTTP call
            "timestamp" : "1970-01-01T00:00:01.0000000000Z",
            "path" : "/v1/users/1",
            "verb" : "GET",
+           "request_filename" : "list_requests.log",
            "headers" : {
              "Content-Type" : "application/xml"
            }
@@ -104,6 +105,9 @@ Call logs specify arrays of JSON instructing The Playtypus what, as well as when
 4.  headers - a dictionary of headers to send
 
 5.  body - a payload in dictionary or string format
+
+6. response_filename - by default, if you specify the response-log, playtypus will log files in that folder sequentially starting from 000000000.log. If you want to specify the actual log file name, add this to your call. Note: it will ALWAYS append to the file
+
 
 ## Contributing
 

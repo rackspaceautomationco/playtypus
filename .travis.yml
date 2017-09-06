@@ -8,3 +8,5 @@ notifications:
   email:
     - justin.brown@rackspace.com
 script: "rake test"
+before_install:
+  - gem install bundler
