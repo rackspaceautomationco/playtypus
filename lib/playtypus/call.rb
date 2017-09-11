@@ -7,18 +7,20 @@ module Playtypus
       :path,
       :verb,
       :headers,
-      :body
+      :body,
+      :response_filename
 
     def self.from_hash(hash)
-      return self.new(hash['timestamp'], hash['path'], hash['verb'], hash['headers'], hash['body'])
+      return self.new(hash['timestamp'], hash['path'], hash['verb'], hash['headers'], hash['body'], hash['response_filename'])
     end
 
-    def initialize(timestamp, path, verb, headers, body)
+    def initialize(timestamp, path, verb, headers, body, response_filename)
       @timestamp = Time.iso8601(timestamp)
       @path = path
       @verb = verb
       @headers = headers
       @body = body
+      @response_filename = response_filename
     end
 
     def to_hash
@@ -27,7 +29,8 @@ module Playtypus
         'path' => @path,
         'verb' => @verb,
         'headers' => @headers,
-        'body' => @body
+        'body' => @body,
+	'response_filename' => @response_filename
       }
     end
 

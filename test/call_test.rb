@@ -10,7 +10,8 @@ class CallTest < Playtypus::Test
       verb = "POST"
       headers = { 'header1' => 'foo', 'header2' => 'bar'}
       body = { 'body1' => 'fizz', 'body2' => 'buzz', 'list1' => [ '1', '2', '3'] }
-      call = Playtypus::Call.new(timestamp.iso8601, path, verb, headers, body)
+      request_log = {'response_filename'=> 'request_log.log'}
+      call = Playtypus::Call.new(timestamp.iso8601, path, verb, headers, body, request_log)
       assert_equal timestamp.iso8601, call.timestamp.iso8601
       assert_equal path, call.path
       assert_equal verb, call.verb
@@ -22,6 +23,7 @@ class CallTest < Playtypus::Test
       assert_equal verb, from_hash['verb']
       assert_equal headers, from_hash['headers']
       assert_equal body, from_hash['body']
+      assert_equal request_log, from_hash['response_filename']
       to_s = call.to_s
       hash_from_s = JSON.parse(to_s)
       assert_equal timestamp.to_s, hash_from_s['timestamp']
@@ -37,7 +39,7 @@ class CallTest < Playtypus::Test
       verb = "GET"
       headers = nil
       body = nil
-      call = Playtypus::Call.new(timestamp.iso8601, path, verb, headers, body)
+      call = Playtypus::Call.new(timestamp.iso8601, path, verb, headers, body, nil)
       assert_equal timestamp.iso8601, call.timestamp.iso8601
       assert_equal path, call.path
       assert_equal verb, call.verb
@@ -64,12 +66,14 @@ class CallTest < Playtypus::Test
       verb = "GET"
       headers = nil
       body = nil
+      response_filename = nil,
       hash = {
         'timestamp' => timestamp.iso8601,
         'path' => path,
         'verb' => verb,
         'headers' => headers,
-        'body' => body
+        'body' => body,
+        'response_filename' => response_filename,
       }
       call = Playtypus::Call.from_hash hash
       assert_equal timestamp.iso8601, call.timestamp.iso8601

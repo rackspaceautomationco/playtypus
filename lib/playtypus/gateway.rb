@@ -27,12 +27,16 @@ module Playtypus
           current = Time.now.utc - @diff
           while(@position < @call_list.size)
             call = @call_list[@position]
+	    call_log_response_filename = "#{@position.to_s.rjust(10, '0')}.log"
+	    call_log_response_filename = call.response_filename unless call.response_filename.to_s.empty?
+	    file_operation = 'w+'
+	    file_operation = 'a' unless call.response_filename.to_s.empty?
             if(!(@preserve_times) || (call.timestamp <= current))
               result = @sender.send(call)
               $logger.info "#{self.class.name}: waited #{@ticks} ticks.  sent message #{call.timestamp}"
               unless @response_log.to_s.empty?
                 begin
-                  File.open("#{@response_log}/#{@position.to_s.rjust(10, '0')}.log", 'w+') do |file|
+			File.open("#{@response_log}/#{call_log_response_filename}", file_operation) do |file|
                       file.write(JSON.pretty_generate({ 'code' => result.response.code, 'headers' => result.headers.to_hash, 'body' => result.parsed_response}))
                   end
                 rescue => e

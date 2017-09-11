@@ -83,9 +83,11 @@ class GatewayTest < Playtypus::Test
 
   def build_mock_call(timestamp = Time.now)
     return (Class.new Object do
-      attr_reader :timestamp
+              attr_reader :timestamp
+              attr_reader :response_filename
       def initialize(ts)
         @timestamp = ts
+        @response_filename = nil
       end
     end).new(timestamp)
   end
