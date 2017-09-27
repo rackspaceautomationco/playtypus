@@ -109,6 +109,10 @@ Call logs specify arrays of JSON instructing The Playtypus what, as well as when
 6. response_filename - by default, if you specify the response-log, playtypus will log files in that folder sequentially starting from 000000000.log. If you want to specify the actual log file name, add this to your call. Note: it will ALWAYS append to the file
 
 
+## To run via docker image:
+```
+docker run  -v /full/path/to/repo/folder:/home/user/folder --name playtypus myrepo/playtypus play -c /home/user/folder/calls.json -h https://<url>:<port> -r /home/user/folder/responses
+```
 ## Contributing
 
 1.  Fork/clone The Playtypus repo
