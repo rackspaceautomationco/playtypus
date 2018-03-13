@@ -1,6 +1,8 @@
 require 'json'
 require 'httparty'
 require 'uri'
+require 'rexml/document'
+include REXML
 
 module HTTParty
   class Parser
@@ -61,13 +63,23 @@ module Playtypus
   end
 
   def transform_payload(input)
-    result = nil
+    result = input
     begin
-      result = JSON.pretty_generate(input)
+      result = JSON.pretty_generate(input) unless is_xml(input)
     rescue
-      result = input
     end
     return result
+  end
+
+  def is_xml(input)
+    isxml = nil
+    begin
+      Document.new(input)
+      isxml=true
+    rescue
+      isxml=false
+    end
+    return isxml
   end
 
 end
