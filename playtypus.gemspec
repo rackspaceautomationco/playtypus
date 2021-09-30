@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |s|
   s.name        = 'playtypus'
-  s.version     = '0.0.5'
-  s.date        = '2015-04-09'
+  s.version     = '0.0.6'
+  s.date        = '2021-09-30'
   s.required_ruby_version = '>= 1.9.3'
   s.licenses    = ['MIT']
 
@@ -12,23 +12,17 @@ Gem::Specification.new do |s|
   s.author      = 'Rackspace'
   s.email       = ['racksburg_automation@lists.rackspace.com']
   s.homepage    = 'https://github.com/rackspaceautomationco/playtypus'
-  
+
   s.files = Dir.glob("{bin,lib}/**/*") + %w(MIT-LICENSE README.md Gemfile playtypus.gemspec ascii.rb)
   s.executables = %w(playtypus)
 
   s.add_dependency 'thor', '~> 0.19.1', '>= 0.19.1'
-  s.add_dependency 'rake', '~> 10.4.2', '>= 10.4.2'
+  s.add_dependency 'rake', '>= 12.3.3'
   s.add_dependency 'minitest', '~> 5.2.0', '>= 5.2.0'
   s.add_dependency 'simplecov', '~> 0.9.2', '>= 0.9.2'
   s.add_dependency 'coveralls', '~> 0.7.11', '>= 0.7.11'
   s.add_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
   s.add_dependency 'httparty', '~> 0.11.0', '>= 0.11.0'
-  if RUBY_VERSION >= "2.4.0"
-    s.add_dependency 'eventmachine', '~> 1.2.4', '>=1.2.5'
-  elsif RUBY_VERSION >= "2.2.0"
-    s.add_dependency 'eventmachine', '~> 1.0.4', '>= 1.0.4'
-  else
-    s.add_dependency 'eventmachine', '~> 1.0.3', '< 1.0.4'
-  end
+  s.add_dependency 'eventmachine', '~> 1.2.4', '>=1.2.5'
   s.add_dependency 'mocha', '~> 0.14.0', '>= 0.14.0'
 end
